@@ -1,0 +1,75 @@
+<div class="mx-auto" style="    display: inline-block;
+margin: 0 auto;
+text-align: center;">
+
+
+    <div class="d-flex flex-row justify-content-end">
+
+
+        <div class=" ">
+            <div class=" ">
+
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon"
+                    (click)="onPreviousMonth()">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <div style=" display: inline-block; vertical-align: super; line-height: 45px; text-align: center;  ">
+                    {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; | {{ year }}
+                </div>
+                <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon"
+                    (click)="onNextMonth()">
+                    <mat-icon>arrow_forward</mat-icon>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div style="border: 1px solid #aaa;">
+
+
+        <div class="d-flex flex-row ">
+            @for (weekDay of weekDaysName; track $index) {
+            <div class="   " style="border: px solid #aaa;">
+                <div class="calender-cell-header" style="  text-align: right;    border: 1px solid #aaa; ">
+                    {{ weekDay }}
+                </div>
+            </div>
+            }
+        </div>
+
+
+        @for (items of newList; track $index) {
+        <div class="d-flex flex-row " style="border: 0px solid green ;  ">
+            @for (item of items; track $index) {
+
+
+            <div class="" style="border:  px solid red;  ">
+                <div class="calender-cell" style="  text-align: right; border: 1px solid #aaa; "
+                    (click)="clickItem(item,false)">
+                    @if (today.number === item.number && today.month === item.month ) {
+                    <button mat-mini-fab color="primary">
+                        {{item.number}}
+                    </button>
+                    }
+                    @else {
+                    <p> {{item.number}}</p>
+                    }
+
+                    @for (booking of item.timeBooking ; track booking ; let bokkingIndex = $index; ) {
+                    <span class="badge text-bg-primary" style="font-size: 10px; cursor: pointer;"
+                        (click)="clickItem(item,true)">
+                        {{booking.time}} <span style="font-size: 12px ; font-weight: 500;">{{booking.title}} </span>
+                    </span>
+                    @if (bokkingIndex >2) {
+                    <span class="badge text-bg-secondary" style="font-size: 10px;">{{bokkingIndex-2 }} more</span>
+                    }
+                    }
+                </div>
+            </div>
+            }
+        </div>
+        }
+    </div>
+
+</div>
+<!-- width: 760px; -->

@@ -1,0 +1,42 @@
+// .calendar {
+//     // width: 90%;
+
+
+// }
+
+// .day {
+//     // width: 12.85%;
+//     display: inline-block;
+
+
+// }
+
+// .today {
+//     // border-radius: 100%;
+//     background-color: green;
+//     color: #fff;
+//     padding: 5px;
+//     height: 50px;
+//     width: 50px;
+//     // text-align: center;
+// }
+
+.calender-cell {
+    width: 100px;
+    height: 120px;
+}
+
+.calender-cell-header {
+    width: 100px;
+}
+
+@media (max-width: 576px) {
+    .calender-cell {
+        width: 44px;
+        height: 50px;
+    }
+
+    .calender-cell-header {
+        width: 44px;
+    }
+}
